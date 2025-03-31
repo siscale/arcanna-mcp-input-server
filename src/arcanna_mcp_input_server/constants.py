@@ -14,7 +14,6 @@ GET_JOBS_URL = ARCANNA_HOST + "/api/v1/jobs"
 GET_JOB_BY_ID_URL = ARCANNA_HOST + "/api/v1/jobs/{}"
 GET_JOB_LABELS_URL = ARCANNA_HOST + "/api/v1/jobs/{}/labels"
 GET_JOB_BY_NAME_URL = ARCANNA_HOST + "/api/v1/jobs/get_by_name"
-GET_JOB_LABELS_URL = ARCANNA_HOST + "/api/v1/jobs/{}/labels"
+
 # healthcheck
 HEALTH_CHECK_URL = ARCANNA_HOST + "/api/v1/health/"
-

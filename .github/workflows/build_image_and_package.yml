@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - add-input
+
   workflow_dispatch:
 
 jobs:

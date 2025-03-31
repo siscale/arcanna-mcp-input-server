@@ -1,6 +1,6 @@
 # Arcanna MCP Input Server
 
-The Arcanna MCP Inpyt server allows user to send data and feedback to  AI use cases through the Model Context Protocol (MCP).
+The Arcanna MCP Input server allows user to send data and feedback to  AI use cases through the Model Context Protocol (MCP).
 
 ## Usage with Claude Desktop or other MCP Clients
 
@@ -36,8 +36,9 @@ Desktop).
 
 #### Configuration
 1. Change directory to the directory where the Dockerfile is.
-2. Run ```docker build -t arcanna/arcanna-mcp-input-server. --progress=plain --no-cache```
+2. Run ```docker build -t arcanna/arcanna-mcp-input-server . --progress=plain --no-cache```
 3. Add the configuration bellow to your claude desktop config.
+
 ```json
 {
   "mcpServers": {
@@ -53,7 +54,7 @@ Desktop).
         "ARCANNA_HOST",
         "-e",
         "ARCANNA_USER",
-        "mcp/arcanna-mcp-input-server"
+        "arcanna/arcanna-mcp-input-server"
       ],
       "env": {
         "ARCANNA_INPUT_API_KEY": "<YOUR_ARCANNA_API_KEY_HERE>",
@@ -64,4 +65,3 @@ Desktop).
   }
 }
 ```
-

@@ -28,15 +28,14 @@ wheels = [
 
 [[package]]
 name = "arcanna-mcp-input-server"
-version = "0.0.1"
+version = "0.0.2"
 source = { editable = "." }
 dependencies = [
     { name = "fastapi" },
     { name = "mcp", extra = ["cli"] },
     { name = "requests" },
     { name = "starlette" },
-    { name = "uv" },
-    { name = "uvx" },
+    { name = "uv" }
 ]
 
 [package.dev-dependencies]

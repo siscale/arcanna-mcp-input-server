@@ -3,7 +3,7 @@ name = "arcanna-mcp-input-server"
 authors = [
   { name="DevSiscale", email="dev@siscale.com" },
 ]
-version = "0.0.3"
+version = "0.0.4"
 description = "The Arcanna MCP Input server allows user to send data and feedback to  AI use cases through the Model Context Protocol (MCP)."
 readme = "README.md"
 requires-python = ">=3.10"

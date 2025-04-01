@@ -9,14 +9,14 @@ from arcanna_mcp_input_server.utils.exceptions_handler import handle_exceptions
 
 def export_tools() -> List[Callable]:
     return [
-        health_check
+        health_check_input_server
     ]
 
 
 @handle_exceptions
-async def health_check() -> dict:
+async def health_check_input_server() -> dict:
     """
-        Health check of Arcanna API Server.
+        Health check of Arcanna Input API Server.
         Returns:
         --------
         dict

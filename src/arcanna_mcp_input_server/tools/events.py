@@ -9,22 +9,20 @@ from arcanna_mcp_input_server.utils.exceptions_handler import handle_exceptions
 
 def export_tools() -> List[Callable]:
     return [
-        send_event,
-        send_event_with_id,
-        send_feedback_for_event,
-        get_event_by_id
+        send_event_to_external_input_job,
+        send_event_with_id_to_external_input_job
     ]
 
 
 @handle_exceptions
-async def send_event(job_id: int, event: dict) -> dict:
+async def send_event_to_external_input_job(job_id: int, event: dict) -> dict:
     """
     Send a JSON event payload for Arcanna to provide a decision on. Arcanna will generate a new internal ID for the event.
     In case of an internal server error, do not use any other tool, ask the user how he would like to continue,
     Parameters:
     -----------
     job_id : int
-        Unique identifier for the job.
+        Unique identifier for the external input job.
     event : dict
         A raw dictionary containing event/alert/incident data.
 
@@ -52,14 +50,14 @@ async def send_event(job_id: int, event: dict) -> dict:
 
 
 @handle_exceptions
-async def send_event_with_id(job_id: int, event: dict, event_id: str) -> dict:
+async def send_event_with_id_to_external_input_job(job_id: int, event: dict, event_id: str) -> dict:
     """
     Send a JSON security alert/incident/event to Arcanna for ingestion.
 
     Parameters:
     -----------
     job_id : int
-        Unique identifier for the job.
+        Unique identifier for the external input job.
     event : dict
         A raw dictionary containing event/alert/incident data.
     event_id: str

@@ -1,5 +1,4 @@
 from typing import Callable, List
-
 from arcanna_mcp_input_server.constants import GET_JOBS_URL, GET_JOB_BY_ID_URL, GET_JOB_LABELS_URL, GET_JOB_BY_NAME_URL
 from arcanna_mcp_input_server.environment import API_KEY, ARCANNA_USER
 import requests
@@ -8,17 +7,17 @@ from arcanna_mcp_input_server.utils.exceptions_handler import handle_exceptions
 
 def export_tools() -> List[Callable]:
     return [
-        get_job_by_id,
-        get_jobs,
-        get_job_labels,
-        get_job_by_name,
+        get_external_input_job_by_id,
+        get_external_input_jobs,
+        get_external_input_job_labels,
+        get_external_input_job_by_name,
     ]
 
 
 @handle_exceptions
-async def get_job_by_id(job_id: int) -> dict:
+async def get_external_input_job_by_id(job_id: int) -> dict:
     """
-        Get arcanna job by id.
+        Get arcanna external input job by id.
     Parameters:
     -----------
     job_id : int
@@ -56,9 +55,9 @@ async def get_job_by_id(job_id: int) -> dict:
 
 
 @handle_exceptions
-async def get_jobs() -> list:
+async def get_external_input_jobs() -> list:
     """
-        Get arcanna jobs that have your API KEY attached to them.
+        Get arcanna external input jobs that have your API KEY attached to them.
 
     Returns:
     --------
@@ -93,9 +92,9 @@ async def get_jobs() -> list:
 
 
 @handle_exceptions
-async def get_job_labels(job_id: int) -> list:
+async def get_external_input_job_labels(job_id: int) -> list:
     """
-        Get decision labels of a job.
+        Get decision labels of an external input job.
 
     Parameters:
     --------
@@ -116,9 +115,9 @@ async def get_job_labels(job_id: int) -> list:
 
 
 @handle_exceptions
-async def get_job_by_name(job_name: str) -> dict:
+async def get_external_input_job_by_name(job_name: str) -> dict:
     """
-        Get a job by name.
+        Get an external input job by name.
 
     Parameters:
     --------

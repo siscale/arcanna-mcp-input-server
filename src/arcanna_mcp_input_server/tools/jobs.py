@@ -7,17 +7,21 @@ from arcanna_mcp_input_server.utils.exceptions_handler import handle_exceptions
 
 def export_tools() -> List[Callable]:
     return [
-        get_external_input_job_by_id,
-        get_external_input_jobs,
-        get_external_input_job_labels,
-        get_external_input_job_by_name,
+        get_external_input_jobs
     ]
 
 
 @handle_exceptions
 async def get_external_input_job_by_id(job_id: int) -> dict:
     """
-        Get arcanna external input job by id.
+        Retrieve Arcanna External Input Job by id.
+        An Arcanna External Input Job refers to a job where the user's API Key is configured on the input integration, enabling data to be sent via HTTP calls.
+        Use this tool only when:
+            - 1. The user intends to send data to Arcanna
+                 Example user query: "I want to start pushing/send data to Arcanna. What is the configuration for job id = <JOB_ID>?"
+            - 2. The user specifically requests decision labels for one job configured with an external API Key
+                 Example user query: "Can you show me the configuration for job with id <JOB_ID> that use an external API key input?"
+
     Parameters:
     -----------
     job_id : int
@@ -57,7 +61,21 @@ async def get_external_input_job_by_id(job_id: int) -> dict:
 @handle_exceptions
 async def get_external_input_jobs() -> list:
     """
-        Get arcanna external input jobs that have your API KEY attached to them.
+        Retrieve Arcanna External Input Jobs.
+        An Arcanna External Input Job refers to a job where the user's API Key is configured on the input integration, enabling data to be sent via HTTP calls.
+        Use this tool only when:
+            - 1. The user intends to send data to Arcanna
+                 Example user query: "I want to start pushing/send data to Arcanna. What jobs can I use?"
+            - 2. The user specifically requests jobs configured with an external API Key
+                 Example user query: "Can you show me the jobs that use an external API key input?"
+
+        DO NOT use this tool outside the specific scenarios described. If you're unsure, ask the user for clarification before proceeding.
+        DO NOT use this tool if the user is requesting a generic job retrieval, such as:
+            - 1. "What are the available jobs?"
+            - 2. "What jobs are in Arcanna?"
+            - 3. "List the jobs."
+            - 4. "Show the jobs."
+            In such cases, use a different tool designed for general job listing instead.
 
     Returns:
     --------
@@ -94,7 +112,13 @@ async def get_external_input_jobs() -> list:
 @handle_exceptions
 async def get_external_input_job_labels(job_id: int) -> list:
     """
-        Get decision labels of an external input job.
+        Retrieve decision labels for an Arcanna External Input Job.
+        An Arcanna External Input Job refers to a job where the user's API Key is configured on the input integration, enabling data to be sent via HTTP calls.
+        Use this tool only when:
+            - 1. The user intends to send data to Arcanna
+                 Example user query: "I want to start pushing/send data to Arcanna. What are the decision labels for job id = <JOB_ID>?"
+            - 2. The user specifically requests decision labels for one job configured with an external API Key
+                 Example user query: "Can you show me the decision labels for job with id <JOB_ID> that use an external API key input?"
 
     Parameters:
     --------
@@ -117,7 +141,13 @@ async def get_external_input_job_labels(job_id: int) -> list:
 @handle_exceptions
 async def get_external_input_job_by_name(job_name: str) -> dict:
     """
-        Get an external input job by name.
+        Retrieve Arcanna External Input Job by job name.
+        An Arcanna External Input Job refers to a job where the user's API Key is configured on the input integration, enabling data to be sent via HTTP calls.
+        Use this tool only when:
+            - 1. The user intends to send data to Arcanna
+                 Example user query: "I want to start pushing/send data to Arcanna. What is the configuration for job name = <JOB_NAME>?"
+            - 2. The user specifically requests decision labels for one job configured with an external API Key
+                 Example user query: "Can you show me the configuration for job with id <JOB_NAME> that use an external API key input?"
 
     Parameters:
     --------
